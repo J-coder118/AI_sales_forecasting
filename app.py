@@ -4,7 +4,6 @@ from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import TimeSeriesSplit
-from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
 from xgboost import XGBRegressor
 import matplotlib.pyplot as plt
 from quart_cors import cors
@@ -151,6 +150,7 @@ def scale_data(train_set, test_set):
     X_test, y_test = test_set_scaled[:, 1:], test_set_scaled[:, 0:1].ravel()
 
     return X_train, y_train, X_test, y_test, scaler
+
 
 
 @app.route('/sales-data', methods=['GET'])
