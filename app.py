@@ -7,7 +7,6 @@ from sklearn.model_selection import TimeSeriesSplit
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
 from xgboost import XGBRegressor
 import matplotlib.pyplot as plt
-
 from quart_cors import cors
 from quart import Quart, jsonify, request, websocket, g, abort, Response
 import pandas as pd
