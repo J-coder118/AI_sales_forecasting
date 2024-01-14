@@ -34,6 +34,7 @@ def create_connection():
         print(f"Error connecting to the database: {e}")
 
 
+# Hello
 def load_data():
     try:
         store_sales = pd.read_csv("doc/data.csv")
