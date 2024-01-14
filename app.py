@@ -43,37 +43,36 @@ def load_data():
     except Exception as e:
         print(f"Error retrieving sales data: {e}")
 
-    # try:
-    #     connection = create_connection()
-    #     cursor = connection.cursor()
+    try:
+        connection = create_connection()
+        cursor = connection.cursor()
 
-    #     cursor.execute(
-    #         "SELECT * FROM sales_data"
-    #     )
-    #     result = cursor.fetchall()
-    #     cursor.close()
-    #     connection.close()
+        cursor.execute(
+            "SELECT * FROM sales_data"
+        )
+        result = cursor.fetchall()
+        cursor.close()
+        connection.close()
 
-    #     csv_data = io.StringIO()
-    #     csv_writer = csv.writer(csv_data)
+        csv_data = io.StringIO()
+        csv_writer = csv.writer(csv_data)
         
-    #     # Write the header row
-    #     csv_writer.writerow(['day', 'total_sales', 'average_order_value', 'orders'])
+        # Write the header row
+        csv_writer.writerow(['day', 'total_sales', 'average_order_value', 'orders'])
         
-    #     # Write the data rows
-    #     csv_writer.writerows(result)
-    #     response = Response(csv_data.getvalue(), content_type='text/csv')
-    #     response.headers['Content-Disposition'] = 'attachment; filename=sales_data.csv'
+        # Write the data rows
+        csv_writer.writerows(result)
+        response = Response(csv_data.getvalue(), content_type='text/csv')
+        response.headers['Content-Disposition'] = 'attachment; filename=sales_data.csv'
         
-    #     return response, "2023-11-30"
+        return response, "2023-11-30"
         
-    # except Exception as e:
-    #     print(f"Error retrieving sales data: {e}")
+    except Exception as e:
+        print(f"Error retrieving sales data: {e}")
 
 
 def daily_sales(data):
     return ""
-
 
 def monthly_sales(data):
     """Returns a dataframe where each row represents total sales for a given
@@ -88,7 +87,6 @@ def monthly_sales(data):
     monthly_data.to_csv('../data/monthly_data.csv')
 
     return monthly_data
-
 
 def get_diff(data):
     """Returns the dataframe with a column for sales difference between each
