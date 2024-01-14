@@ -70,6 +70,7 @@ def load_data():
     except Exception as e:
         print(f"Error retrieving sales data: {e}")
 
+#dataframe
 
 def daily_sales(data):
     return ""
