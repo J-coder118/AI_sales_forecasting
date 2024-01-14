@@ -182,7 +182,6 @@ async def sales_data():
         X_datetime_numeric = X_datetime.apply(lambda x: x.astype('int64') // 10**9)  # Convert datetime to numerical
         X = pd.concat([X_numeric, X_datetime_numeric], axis=1)
 
-        # Split the data into training and testing sets
         tscv = TimeSeriesSplit(n_splits=5)
         for train_index, test_index in tscv.split(X):
             X_train, X_test = X.iloc[train_index].reset_index(drop=True), X.iloc[test_index].reset_index(drop=True)
